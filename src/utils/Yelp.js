@@ -19,7 +19,6 @@ const Yelp = {
                 const jsonResponse = await response.json();
                 if (Object.keys(jsonResponse).includes('businesses')) {
                     return jsonResponse.businesses.map(business => {
-                        console.log(business);
                         return {
                             id: business.id,
                             imageSrc: business.image_url,
