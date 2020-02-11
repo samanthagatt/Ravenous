@@ -1,17 +1,36 @@
 import React from "react";
 
-const sortByOptions = {
+const SORT_BY_OPTIONS = {
     "Best Match": "best_match",
     "Highest Rated": "rating",
     "Most Reviewed": "review_count"
 };
 
 class SearchBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            term: '',
+            location: '',
+            sortBy: SORT_BY_OPTIONS["Best Match"]
+        };
+    }
+
+    getSortByClass(sortByOption) {
+        return sortByOption === this.state.sortBy ? 'active' : '';
+    }
+
     renderSortByOptions() {
-        return Object.keys(sortByOptions).map(key => {
-            const value = sortByOptions[key];
-            return <li key={value}>{key}</li>
+        return Object.keys(SORT_BY_OPTIONS).map(key => {
+            const value = SORT_BY_OPTIONS[key];
+            return <li key={value}
+                        className={this.getSortByClass(value)}
+                        onClick={this.handleSortByChange.bind(this, value)}>{key}</li>
         });
+    }
+
+    handleSortByChange(sortByOption) {
+        this.setState({sortBy: sortByOption});
     }
 
     render() {
