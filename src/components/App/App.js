@@ -5,7 +5,8 @@ import BusinessList from '../BusinessList/BusinessList';
 
 function App() {
   return (
-    <div>
+    <div className="App">
+      <h1>Ravenous</h1>
       <SearchBar />
       <BusinessList />
     </div>
