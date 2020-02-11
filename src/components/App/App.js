@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Business from '../Business/Business.js';
+import BusinessList from '../BusinessList/BusinessList';
 
 function App() {
-  return <Business />;
+  return <BusinessList />;
 }
 
 export default App;
