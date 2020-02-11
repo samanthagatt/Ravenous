@@ -4,11 +4,15 @@ import Business from '../Business/Business';
 
 class BusinessList extends React.Component {
     render() {
+        let businesses;
+        if (this.props.businesses !== undefined) {
+            businesses = this.props.businesses.map(business =>
+                <Business business={business} key={business.id} />
+            )
+        }
         return (
             <div className="BusinessList">
-                {this.props.businesses.map(business =>
-                    <Business business={business} key={business.id} />
-                )}
+                { businesses === undefined ? "No results" : businesses }
             </div>
         );
     }
